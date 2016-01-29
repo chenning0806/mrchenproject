@@ -27,4 +27,10 @@ public class LoginController {
 		UserPO user = loginService.loginService(map);
 		return user;
 	}
+	
+	@RequestMapping("/index.do")
+	public String getPage(String username,String password) {
+		
+		return "index";
+	}
 }
