@@ -1,5 +1,4 @@
 /target/
-/mrchenproject/.settings/
-/mrchenproject/target/
-/mrchenproject/.classpath
-/mrchenproject/.project
+/.settings/
+/.classpath
+/.project
