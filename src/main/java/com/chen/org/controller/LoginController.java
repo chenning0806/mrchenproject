@@ -20,7 +20,6 @@ public class LoginController {
 	@RequestMapping("/login.do")
 	@ResponseBody
 	public Object login(String username,String password) {
-		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("username", username);
 		map.put("password", password);
