@@ -10,4 +10,8 @@
     <select id="login" resultMap="userPO" parameterType="java.util.Map">
         select * from user where username=#{username} and password=#{password}
     </select>
+    <insert id="saveUser"  parameterType="java.util.Map">
+        insert into user (username,password) values(#{username},#{password})
+    </insert>
+    
 </mapper>

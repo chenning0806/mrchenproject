@@ -21,4 +21,10 @@ public class LoginServiceImpl implements LoginService{
 		return userLoginDao.login(map);
 	}
 
+	@Override
+	public int saveUser(Map<String, String> map) {
+		int i = userLoginDao.saveUser(map);
+		return i;
+	}
+
 }

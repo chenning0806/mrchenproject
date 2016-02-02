@@ -32,4 +32,15 @@ public class LoginController {
 		
 		return "index";
 	}
+	
+
+	@RequestMapping("/saveUser.do")
+	@ResponseBody
+	public Object saveUser(String username,String password) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("username", username);
+		map.put("password", password);
+		int i = loginService.saveUser(map);
+		return i;
+	}
 }
