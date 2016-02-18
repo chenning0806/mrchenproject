@@ -5,6 +5,8 @@ import java.io.InputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import com.chen.org.bean.UserPO;
+
 public class IoTestServer {
 
 	public static void main(String[] args) {
