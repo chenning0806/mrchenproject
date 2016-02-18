@@ -6,7 +6,7 @@ import java.util.TimerTask;
 public class TimeTest {
     public static void main(String[] args) {
 //        timer1();
-          timer2();
+          timer2(); 
         //timer3();
         //timer4();
     }
