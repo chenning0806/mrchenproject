@@ -15,7 +15,7 @@ public class TimeTest {
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             public void run() {
-                System.out.println("-------设定要指定任务1111--------");
+                System.out.println("-------设定要指定任务11--------");
             }
         }, 2000);// 设定指定的时间time,此处为2000毫秒
     }
