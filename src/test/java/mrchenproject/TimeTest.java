@@ -6,8 +6,8 @@ import java.util.TimerTask;
 public class TimeTest {
     public static void main(String[] args) {
 //        timer1();
-          timer2(); 
-        //timer3();
+//          timer2(); 
+        timer3();
         //timer4();
     }
     // 第一种方法：设定指定任务task在指定时间time执行 schedule(TimerTask task, Date time)
