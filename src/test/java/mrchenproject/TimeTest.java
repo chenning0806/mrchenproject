@@ -35,7 +35,7 @@ public class TimeTest {
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
-                System.out.println("-------设定要指定任务333--------");
+                System.out.println("-------设定要指定任务3333--------");
             }
         }, 1000, 2000);
     }
