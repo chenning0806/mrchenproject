@@ -25,7 +25,7 @@ public class TimeTest {
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             public void run() {
-                System.out.println("-------设定要指定任务--------");
+                System.out.println("-------设定要指定任务2222--------");
             }
         }, 1000, 5000);
     }
