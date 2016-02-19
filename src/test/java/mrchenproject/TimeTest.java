@@ -51,7 +51,7 @@ public class TimeTest {
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
-                System.out.println("-------设定要指定任务444--------");
+                System.out.println("-------设定要指定任务4444--------");
             }
         }, time, 1000 * 60 * 60 * 24);// 这里设定将延时每天固定执行
     }
