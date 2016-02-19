@@ -15,6 +15,7 @@ public class Test {
 		byte[] bytes = new byte[1024];
 		
 			fileInputStream.read(bytes);
+			
 			System.out.println(new String(bytes));
 			
 		} catch (IOException e) {
