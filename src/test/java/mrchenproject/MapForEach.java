@@ -6,7 +6,6 @@ import java.util.Map;
 public class MapForEach {
 
 	public static void main(String[] args) {
-		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("a", "a");
 		map.put("b", "b");
