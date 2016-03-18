@@ -1,6 +1,8 @@
 package com.chen.org.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,8 @@ public class LoginController {
 	@RequestMapping("/login.do")
 	@ResponseBody
 	public Object login(String username,String password) {
+		List<String> list = new ArrayList<String>();
+		list.remove(1);
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("username", username);
 		map.put("password", password);
