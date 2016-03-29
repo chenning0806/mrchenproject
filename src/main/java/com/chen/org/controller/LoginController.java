@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,16 +17,17 @@ import com.chen.org.service.LoginService;
 
 @Controller
 public class LoginController {
-
+	protected  Logger LOG = LoggerFactory.getLogger(LoginController.class);
 	@Autowired
 	LoginService loginService;
 	
-	@RequestMapping("/login.do")
+	@RequestMapping(value="/login.do")
 	@ResponseBody
 	public Object login(String username,String password) {
 		List<String> list = new ArrayList<String>();
 		list.remove(1);
 		Map<String, String> map = new HashMap<String, String>();
+		LOG.info("========log start========");
 		map.put("username", username);
 		map.put("password", password);
 		UserPO user = loginService.loginService(map);
