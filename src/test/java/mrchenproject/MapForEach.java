@@ -1,19 +1,26 @@
 package mrchenproject;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
 public class MapForEach {
 
 	public static void main(String[] args) {
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("a", "a");
-		map.put("b", "b");
-		map.put("c", "c");
-		map.put("d", "d");
-		for (String entry : map.keySet()) {
-			System.out.println(entry+"--"+map.get(entry));
+		String string = "(3)班（七年级(3)班）";
+		String ss;
+		try {
+			ss = URLDecoder.decode(string,"UTF-8");
+			System.out.println(ss);
+			System.out.println(URLDecoder.decode(ss,"UTF-8"));
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
+		
 		
 	}
 

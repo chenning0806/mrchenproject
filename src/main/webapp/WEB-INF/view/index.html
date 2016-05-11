@@ -13,7 +13,28 @@
 <form id="slick-login" action="login.do">
 <label for="username">username</label><input type="text" name="username" class="placeholder" placeholder="请输入邮箱">
 <label for="password">password</label><input type="password" name="password" class="placeholder" placeholder="请输入密码">
-<input type="submit" value="登录">
+<input id="submit111" type="button" value="登录">
 </form>
+<script type="text/javascript">
+alert(111);
+
+	alert(11221);
+	$("#submit111").click(function(){
+		  $.ajax({ url: "login.do",  data: "username=cc&password=cc", success: function(data){
+
+			  
+		    alert(data);
+
+		},error:function(data,textstatus){
+			alert(data.responseText);
+		}});  
+		
+		/*  $.post("login.do",{ username: "John", password: "2pm" }, function(data){
+			   alert(data);
+			 });  */
+	})
+
+
+</script>
 </body>
 </html>

@@ -24,8 +24,9 @@ public class LoginController {
 	@RequestMapping(value="/login.do")
 	@ResponseBody
 	public Object login(String username,String password) {
-		List<String> list = new ArrayList<String>();
-		list.remove(1);
+//		List<String> list = new ArrayList<String>();
+//		list.remove(1);
+//		int i = 1/0;
 		Map<String, String> map = new HashMap<String, String>();
 		LOG.info("========log start========");
 		map.put("username", username);

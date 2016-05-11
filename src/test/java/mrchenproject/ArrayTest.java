@@ -1,14 +1,18 @@
 package mrchenproject;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 
 public class ArrayTest {
 
 	public static void main(String[] args) {
+		String string = "123456";
+        System.out.println(string.substring(string.length()-3,string.length()));
 		
-		int[] array = {85,1,1,0,85,2,2,1,5,85,1,1,0,85,1,1,0,85,3,2,3,2,1};
-		
-		splitArray(array);
+//		int[] array = {85,1,1,0,85,2,2,1,5,85,1,1,0,85,1,1,0,85,3,2,3,2,1};
+//		
+//		splitArray(array);
 
 	}
 

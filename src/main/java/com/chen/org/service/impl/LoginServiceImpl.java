@@ -10,13 +10,13 @@ import com.chen.org.dao.UserLoginDao;
 import com.chen.org.service.LoginService;
 
 @Service
-public class LoginServiceImpl implements LoginService{
+public class LoginServiceImpl implements LoginService {
 
 	@Autowired 
 	UserLoginDao userLoginDao;
 	
 	@Override
-	public UserPO loginService(Map<String, String> map) {
+	public UserPO loginService(Map<String, String> map){
 		userLoginDao.login(map);
 		return userLoginDao.login(map);
 	}
