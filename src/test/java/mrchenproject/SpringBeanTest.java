@@ -11,12 +11,13 @@ import sun.security.jgss.LoginConfigImpl;
 
 import com.chen.org.dao.UserLoginDao;
 import com.chen.org.service.LoginService;
+import com.chen.org.service.TesService;
 import com.chen.org.service.impl.TestServiceImpl;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:config/spring/applicationContext.xml","classpath:config/mybatis/spring-mybatis.xml"})
 public class SpringBeanTest {
 	@Autowired
-	TestServiceImpl testServiceImpl;
+	TesService testServiceImpl;
 	@Autowired
 	LoginService loginConfigImpl;
 	@Autowired 
