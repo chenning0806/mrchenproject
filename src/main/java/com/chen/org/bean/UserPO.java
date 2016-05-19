@@ -1,6 +1,7 @@
 package com.chen.org.bean;
 
 import java.io.Serializable;
+import java.util.HashMap;
 
 public class UserPO implements Serializable{
 
@@ -12,6 +13,20 @@ public class UserPO implements Serializable{
 	private String username;
 	
 	private String password;
+	
+	private HashMap<String, String> grade;
+	
+	
+	
+	
+
+	public HashMap<String, String> getGrade() {
+		return grade;
+	}
+
+	public void setGrade(HashMap<String, String> grade) {
+		this.grade = grade;
+	}
 
 	public String getUsername() {
 		return username;

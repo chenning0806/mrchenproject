@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"  
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:mvc="http://www.springframework.org/schema/mvc" 
+    xmlns:aop="http://www.springframework.org/schema/aop" 
+    xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+    xmlns:tx="http://www.springframework.org/schema/tx" 
+    xsi:schemaLocation="http://www.springframework.org/schema/beans    
+                        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd  
+                        http://www.springframework.org/schema/aop 
+						http://www.springframework.org/schema/aop/spring-aop-3.2.xsd 
+						http://www.springframework.org/schema/tx 
+						http://www.springframework.org/schema/tx/spring-tx-3.2.xsd    
+                        http://www.springframework.org/schema/context    
+                        http://www.springframework.org/schema/context/spring-context-4.0.xsd    
+                        http://www.springframework.org/schema/mvc
+                        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd 
+                        http://code.alibabatech.com/schema/dubbo 
+                        http://code.alibabatech.com/schema/dubbo/dubbo.xsd "> 
+  
+   <dubbo:application name="dubbo_consumer"></dubbo:application>  
+   <!-- 使用zookeeper注册中心暴露服务地址 -->    
+   <dubbo:registry protocol="zookeeper" address="54.249.14.84:2181,54.249.14.84:2182" check="false"></dubbo:registry>   
+     <!-- 要引用的服务 -->    
+   <dubbo:reference interface="com.chen.org.dubboServerApi.DemoService" id = "demoService"></dubbo:reference>  
+</beans>
