@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+                http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/rabbit
+                http://www.springframework.org/schema/rabbit/spring-rabbit-1.0.xsd">
+
+       <!-- 属性文件读取 -->
+       <!--<context:property-placeholder location="classpath:service.properties" ignore-unresolvable="true"/>-->
+
+       <!-- 连接服务器配置 -->
+       <rabbit:connection-factory id="connectionFactory" host="54.249.14.84"
+               username="test" password="test"
+               port="5672" channel-cache-size="1"/>
+
+       <rabbit:admin connection-factory="connectionFactory"/>
+
+       <!-- queues队列声明 -->
+       <!-- 发送通知队列 -->
+       <rabbit:queue id="sendQueue" name="message.send" durable="true" auto-delete="false" exclusive="false"/>
+       <!-- 撤销通知队列 -->
+      <!--  <rabbit:queue id="cancelQueue" name="${queues.cancel.name}" durable="true" auto-delete="false" exclusive="false"/> -->
+       <!-- 异常数据队列 auto-delete指该队列没有订阅的消费者时队列删除-->
+       <!-- <rabbit:queue id="errorQueue" name="${queues.error.name}" durable="true" auto-delete="false" exclusive="false"/> -->
+
+       <!-- 交换机和队列通过routingKey绑定 -->
+       <!-- direct模式不支持routingKey通配，性能优于topic -->
+       <rabbit:direct-exchange id="mqExchange" name="mqExchangeTest" durable="true" auto-delete="false">
+              <rabbit:bindings>
+                     <rabbit:binding queue="sendQueue" key="message.send"></rabbit:binding>
+                     <!-- <rabbit:binding queue="cancelQueue" key="message.cancel"></rabbit:binding>
+                     <rabbit:binding queue="errorQueue" key="message.error"></rabbit:binding> -->
+              </rabbit:bindings>
+       </rabbit:direct-exchange>
+
+       <!-- 消息转换器 生产的数据转换后存入队列-->
+       <!-- <bean id="messageConverter" class="net.xuele.common.rabbitmq.FastJsonMessageConverter"></bean> -->
+	   <!-- 消息对象json转换类 -->
+	   <!-- <bean id="jsonMessageConverter" class="org.springframework.amqp.support.converter.Jackson2JsonMessageConverter" /> -->
+       <rabbit:template id="rabbitTemplate" connection-factory="connectionFactory" exchange="mqExchangeTest" />
+       <context:component-scan base-package="com.chen.org.rabbit">
+              <!-- 细化扫描粒度 -->
+              <context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+       </context:component-scan>
+
+    <!-- 消费者与队列绑定 -->
+    <rabbit:listener-container connection-factory="connectionFactory" acknowledge="auto" concurrency="10" >
+        <rabbit:listener queues="sendQueue" ref="sendQueueConsumer" />
+    </rabbit:listener-container>
+
+    <!-- <rabbit:listener-container connection-factory="connectionFactory" acknowledge="auto" >
+        <rabbit:listener queues="cancelQueue" ref="cancelQueueConsumer"/>
+    </rabbit:listener-container> -->
+
+
+
+</beans>

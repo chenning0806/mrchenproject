@@ -21,8 +21,8 @@
         <param-value>
         	classpath:config/spring/applicationContext.xml
 	        classpath:config/mybatis/spring-mybatis.xml
-	        classpath:config/dubbo/dubbo-consumer.xml
-            
+	       <!--  classpath:config/dubbo/dubbo-consumer.xml
+            classpath:config/rabbit/application-rabbitmq.xml -->
         </param-value>  
     </context-param> 
 	
@@ -42,9 +42,7 @@
 	</filter-mapping>
 	<!-- log4j -->  
 	<listener>  
-        <listener-class>  
-            org.springframework.web.util.Log4jConfigListener  
-        </listener-class>  
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>  
     </listener>
 	<!-- 防止Spring内存溢出监听器 -->  
 	<listener>  

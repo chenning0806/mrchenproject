@@ -2,8 +2,9 @@ package mrchenproject;
 
 public class Demo {
 
-	public static int sum =1;
-	public Demo() {
-		sum=sum+5;
+	public static void main(String[] arg) {
+		
+		System.out.println("111");
+		
 	}
 }

@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import javax.servlet.http.HttpServletRequest;
+
 import mrchenproject.ReadPropertise;
 
 import org.slf4j.Logger;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.chen.org.bean.UserPO;
 import com.chen.org.dubboServerApi.DemoService;
+import com.chen.org.rabbit.SendQueueProvider;
 import com.chen.org.service.LoginService;
 
 @Controller
@@ -27,18 +30,30 @@ public class LoginController {
 	@Autowired
 	LoginService loginService;
 	
-	@Autowired
-	DemoService demoService;
-	
+//	@Autowired
+//	DemoService demoService;
+//	@Autowired
+//	private SendQueueProvider sendQueueProvider;
 	
 	@RequestMapping(value="/login.do")
 	@ResponseBody
-	public Object login(String username,String password) {
+	public Object login(String username,String password,HttpServletRequest request) {
 //		List<String> list = new ArrayList<String>();
 //		list.remove(1);
 //		int i = 1/0;
-		System.out.println(demoService.dubboMessage());
-		
+//		System.out.println(demoService.dubboMessage());
+//		sendQueueProvider.send();
+		String ip = request.getHeader("x-forwarded-for");
+	    if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)){
+	        ip = request.getHeader("Proxy-Client-IP");
+	    }
+	    if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)){
+	        ip = request.getHeader("WL-Proxy-Client-IP");
+	    }
+	    if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)){
+	        ip = request.getRemoteAddr();
+	    }
+	    System.out.println(ip);
 		Map<String, String> map = new HashMap<String, String>();
 		LOG.info("========log start========");
 		map.put("username", username);
