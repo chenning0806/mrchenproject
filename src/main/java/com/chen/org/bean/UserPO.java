@@ -14,11 +14,21 @@ public class UserPO implements Serializable{
 	
 	private String password;
 	
+	private String passwords;
+	
 	private HashMap<String, String> grade;
 	
 	
 	
 	
+
+	public String getPasswords() {
+		return passwords;
+	}
+
+	public void setPasswords(String passwords) {
+		this.passwords = passwords;
+	}
 
 	public HashMap<String, String> getGrade() {
 		return grade;

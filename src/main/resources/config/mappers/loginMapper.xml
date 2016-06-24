@@ -4,11 +4,11 @@
 
 	<resultMap type="UserPO" id="userPO">
 	  <id column="username" property="username" jdbcType="VARCHAR" />
-	  <id column="password" property="password" jdbcType="VARCHAR" />
+	  <id column="passwords" property="passwords" jdbcType="VARCHAR" />
 	</resultMap>
 
     <select id="login" resultMap="userPO" parameterType="java.util.Map">
-        select * from user where username=#{username} and password=#{password}
+        select username,password as passwords from user where username=#{username} and password=#{password}
     </select>
     <insert id="saveUser"  parameterType="java.util.Map">
         insert into user (username,password) values(#{username},#{password})
