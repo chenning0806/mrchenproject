@@ -1,5 +1,6 @@
 package com.chen.org.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -37,28 +38,28 @@ public class LoginController {
 	
 	@RequestMapping(value="/login.do")
 	@ResponseBody
-	public Object login(String username,String password,HttpServletRequest request) {
+	public Object login(String username,String password,HttpServletRequest request) throws Exception{
 //		List<String> list = new ArrayList<String>();
 //		list.remove(1);
 //		int i = 1/0;
 //		System.out.println(demoService.dubboMessage());
 //		sendQueueProvider.send();
-		String ip = request.getHeader("x-forwarded-for");
-	    if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)){
-	        ip = request.getHeader("Proxy-Client-IP");
-	    }
-	    if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)){
-	        ip = request.getHeader("WL-Proxy-Client-IP");
-	    }
-	    if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)){
-	        ip = request.getRemoteAddr();
-	    }
-	    System.out.println(ip);
+		
+		File file = new File("bonusexcel.txt");
+		System.out.println(file.getCanonicalPath());//获取标准的路径 
+	    System.out.println(file.getAbsolutePath());//获取绝对路径
+		file.createNewFile();
 		Map<String, String> map = new HashMap<String, String>();
-		LOG.info("========log start========");
+		LOG.info("========log start========"+Thread.currentThread().getName());
+		
 		map.put("username", username);
 		map.put("password", password);
-		UserPO user = loginService.loginService(map);
+		UserPO user = null;
+		try {
+			user = loginService.loginService(map);
+		} catch (Exception e) {
+			System.out.println(111);
+		}
 		return user;
 	}
 	

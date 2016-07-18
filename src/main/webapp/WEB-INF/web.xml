@@ -21,8 +21,8 @@
         <param-value>
         	classpath:config/spring/applicationContext.xml
 	        classpath:config/mybatis/spring-mybatis.xml
-	       <!--  classpath:config/dubbo/dubbo-consumer.xml
-            classpath:config/rabbit/application-rabbitmq.xml -->
+	      <!--  classpath:config/dubbo/dubbo-consumer.xml -->
+            <!--  classpath:config/rabbit/application-rabbitmq.xml -->
         </param-value>  
     </context-param> 
 	

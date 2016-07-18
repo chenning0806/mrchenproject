@@ -17,6 +17,7 @@ public class LoginServiceImpl implements LoginService {
 	
 	@Override
 	public UserPO loginService(Map<String, String> map){
+		int i = 1/0;
 		userLoginDao.login(map);
 		return userLoginDao.login(map);
 	}
