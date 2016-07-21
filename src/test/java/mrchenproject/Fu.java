@@ -6,9 +6,13 @@ public class Fu extends RuntimeException{
     {  
 		
     }  
-	@Override
-	public String getMessage() {
-		// TODO Auto-generated method stub
-		return "数据库出错！！！";
-	}
+	public Fu(String string)  
+    {  
+		super(string);
+    } 
+//	@Override
+//	public String getMessage() {
+//		// TODO Auto-generated method stub
+//		return "数据库出错！！！";
+//	}
 }

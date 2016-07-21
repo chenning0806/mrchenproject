@@ -7,7 +7,7 @@ public class SingleTon {
 
 	public static SingleTon getInstans() {
 		if(singleTon==null){
-			synchronized (singleTon) {
+			synchronized (SingleTon.class) {
 				if(singleTon==null){
 					singleTon = new SingleTon();
 				}
