@@ -1,6 +1,11 @@
 package mrchenproject;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.lang.reflect.Proxy;
+import java.util.Properties;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,9 +25,10 @@ public class AopTest {
 //	@Autowired 
 //	TesService tesService;
 	@Test
-	public  void main() {
+	public  void main() throws FileNotFoundException, IOException {
 		
-		Object object = new TestServiceImpl();
+		
+		TesService object = new TestServiceImpl();
 		
 		TestInterceptor testInterceptor = new TestInterceptor(object);
 		

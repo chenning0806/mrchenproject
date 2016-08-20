@@ -44,6 +44,7 @@
 	<aop:config>
 		<aop:advisor advice-ref="txAdvice" pointcut="execution(* com.chen.org.service.impl.*.*(..))"/>
 	</aop:config>
+	
 	<!-- spring 任务调度器 -->
 	<context:component-scan base-package="com.chen.org.component" use-default-filters="false" >
     	<context:include-filter type="annotation" expression="org.springframework.stereotype.Component" />
@@ -51,8 +52,8 @@
 
     <!-- quartz 扫描 -->
     <!--<task:annotation-driven/>-->
-    <task:executor id="executor" pool-size="1" />
+    <!-- <task:executor id="executor" pool-size="1" />
     <task:scheduler id="scheduler" pool-size="2" />
-    <task:annotation-driven executor="executor" scheduler="scheduler" />
+    <task:annotation-driven executor="executor" scheduler="scheduler" /> -->
 	
 </beans>

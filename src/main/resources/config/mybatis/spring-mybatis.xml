@@ -29,10 +29,28 @@
 		<property name="maxActive" value="${maxActive}" />
 		<property name="maxIdle" value="${maxIdle}" />
 	</bean>
+	<bean id="dataSource2" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="maxActive" value="${maxActive}" />
+		<property name="maxIdle" value="${maxIdle}" />
+	</bean>
+	<bean id="multipleDataSource" class="com.chen.org.util.MultipleDataSource">
+        <property name="defaultTargetDataSource" ref="dataSource"/>
+        <property name="targetDataSources">
+            <map>
+                <entry key="dataSource" value-ref="dataSource"/>
+                <entry key="dataSource2" value-ref="dataSource2"/>
+            </map>
+        </property>
+    </bean>
 	<!-- sqlSessionFactory -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<!-- 数据库连接池 -->
-		<property name="dataSource" ref="dataSource" />
+		<property name="dataSource" ref="multipleDataSource" />
 		<!-- 加载mybatis的全局配置文件 -->
 		<property name="mapperLocations" value="classpath:config/mappers/**/*Mapper.xml"/>
         <property name="configLocation" value="classpath:config/mybatis/mybatisConfig.xml"/>

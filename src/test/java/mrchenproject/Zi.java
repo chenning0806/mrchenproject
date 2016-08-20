@@ -2,6 +2,7 @@ package mrchenproject;
 
 public class Zi extends Fu2{
 
+	String aString = "1";
 	public void fuMethed() {
 		System.out.println(string);
 	}
