@@ -7,7 +7,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.junit.Test;
 
 public class Timetest1 {
-@Test
+//@Test
 public void test(){
 	SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HHmmssSSS");
     Date date = new Date();

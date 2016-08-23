@@ -14,4 +14,11 @@
         insert into user (username,password) values(#{username},#{password})
     </insert>
     
+    <select id="get" resultMap="userPO" >
+        select * from user where password=#{password} and uid in 
+      <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+      #{item}
+    </foreach>
+    </select>
+    
 </mapper>

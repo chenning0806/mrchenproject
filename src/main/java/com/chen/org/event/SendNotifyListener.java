@@ -7,7 +7,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class SendNotifyListener implements ApplicationListener<SendNotifyEvent>{
 	
 	@Autowired  
