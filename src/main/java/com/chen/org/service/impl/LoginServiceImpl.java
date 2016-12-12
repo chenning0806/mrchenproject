@@ -24,6 +24,9 @@ public class LoginServiceImpl implements LoginService {
 	
 	@Override
 	public UserPO loginService(Map<String, String> map){
+		
+		Integer llll = userLoginDao.update();
+		System.out.println(llll);
 		System.out.println(user);
 		userLoginDao.login(map);
 		List<String> list = new ArrayList<String>();

@@ -21,4 +21,8 @@
     </foreach>
     </select>
     
+    <update id="update"   keyProperty="uid"   useGeneratedKeys="true">
+    	update user set birthday = now() where password='aaaaaa'
+    </update>
+    
 </mapper>

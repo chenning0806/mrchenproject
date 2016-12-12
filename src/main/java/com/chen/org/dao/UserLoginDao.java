@@ -15,4 +15,6 @@ public interface UserLoginDao {
 	int saveUser(Map<String, String> map);
 	
 	List<UserPO> get(@Param("list")List<String> list,@Param("password")String password);
+	
+	Integer update();
 }
