@@ -20,6 +20,11 @@
   </properties>
   
    <dependencies>
+       <dependency>
+           <groupId>org.springframework.data</groupId>
+           <artifactId>spring-data-mongodb</artifactId>
+           <version>1.9.5.RELEASE</version>
+       </dependency>
          <dependency>
              <groupId>junit</groupId>
             <artifactId>junit</artifactId>
