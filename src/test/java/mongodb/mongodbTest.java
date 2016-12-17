@@ -36,4 +36,5 @@ public class mongodbTest {
         System.out.println(u.get(0).getPassword());
 
     }
+
 }

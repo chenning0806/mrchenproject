@@ -15,15 +15,15 @@
        <!--<context:property-placeholder location="classpath:service.properties" ignore-unresolvable="true"/>-->
 
        <!-- 连接服务器配置 -->
-       <rabbit:connection-factory id="connectionFactory" host="54.249.14.84"
-               username="test" password="test"
+       <rabbit:connection-factory id="connectionFactory" host="mq.infra.middleware.xueleyun.com"
+               username="guest" password="guest"
                port="5672" channel-cache-size="1"/>
 
        <rabbit:admin connection-factory="connectionFactory"/>
 
        <!-- queues队列声明 -->
        <!-- 发送通知队列 -->
-       <rabbit:queue id="sendQueue" name="message.send" durable="true" auto-delete="false" exclusive="false"/>
+       <rabbit:queue id="testQueue" name="message.test" durable="true" auto-delete="false" exclusive="false"/>
        <!-- 撤销通知队列 -->
       <!--  <rabbit:queue id="cancelQueue" name="${queues.cancel.name}" durable="true" auto-delete="false" exclusive="false"/> -->
        <!-- 异常数据队列 auto-delete指该队列没有订阅的消费者时队列删除-->
@@ -33,7 +33,7 @@
        <!-- direct模式不支持routingKey通配，性能优于topic -->
        <rabbit:direct-exchange id="mqExchange" name="mqExchangeTest" durable="true" auto-delete="false">
               <rabbit:bindings>
-                     <rabbit:binding queue="sendQueue" key="message.send"></rabbit:binding>
+                     <rabbit:binding queue="testQueue" key="message.test"></rabbit:binding>
                      <!-- <rabbit:binding queue="cancelQueue" key="message.cancel"></rabbit:binding>
                      <rabbit:binding queue="errorQueue" key="message.error"></rabbit:binding> -->
               </rabbit:bindings>
@@ -51,7 +51,7 @@
 
     <!-- 消费者与队列绑定 -->
     <rabbit:listener-container connection-factory="connectionFactory" acknowledge="auto" concurrency="10" >
-        <rabbit:listener queues="sendQueue" ref="sendQueueConsumer" />
+        <rabbit:listener queues="testQueue" ref="sendQueueConsumer" />
     </rabbit:listener-container>
 
     <!-- <rabbit:listener-container connection-factory="connectionFactory" acknowledge="auto" >

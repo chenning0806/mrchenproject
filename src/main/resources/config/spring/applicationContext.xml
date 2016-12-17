@@ -51,9 +51,9 @@
     </context:component-scan>
 
     <!-- quartz 扫描 -->
-    <!--<task:annotation-driven/>-->
-    <!-- <task:executor id="executor" pool-size="1" />
+    <task:annotation-driven/>
+    <task:executor id="executor" pool-size="1" />
     <task:scheduler id="scheduler" pool-size="2" />
-    <task:annotation-driven executor="executor" scheduler="scheduler" /> -->
+    <task:annotation-driven executor="executor" scheduler="scheduler" />
 	
 </beans>

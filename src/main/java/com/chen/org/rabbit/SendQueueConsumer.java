@@ -8,8 +8,9 @@ import org.springframework.stereotype.Component;
 public class SendQueueConsumer implements MessageListener{
 	@Override
 	public void onMessage(final Message arg0) {
-		
-				System.out.println(new String(arg0.getBody())+"------"+Thread.currentThread().getName());
-				
+		System.out.println(new String(arg0.getBody()) + "------" + Thread.currentThread().getName());
 	}
+
+
+
 }
