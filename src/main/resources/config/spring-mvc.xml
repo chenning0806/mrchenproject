@@ -22,7 +22,7 @@
 	<mvc:annotation-driven>
 		<mvc:message-converters register-defaults="true">
 	         <bean
-	             class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"
+	             class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"
 	             p:supportedMediaTypes="text/html" />
 	    </mvc:message-converters>
 	</mvc:annotation-driven>
