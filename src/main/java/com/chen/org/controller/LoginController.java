@@ -51,7 +51,7 @@ public class LoginController {
 	@RequestMapping("/index")
 	public String index(UserPO userPO) {
 //		int i = 1/0;
-		return "index";
+		return "page/index";
 	}
 	
 
