@@ -34,6 +34,7 @@ public class MyInterceptor implements HandlerInterceptor{
 		if(i == 2){
 			System.out.println(this);
 			System.out.println("interceptor2!!!!!!!!!!!!!!!!!!!!!!!!");
+			i = 1;
 		}
 		
 		return true;
