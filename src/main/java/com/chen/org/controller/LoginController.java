@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.chen.org.bean.OrderParam;
 import com.chen.org.bean.UserPO;
 import com.chen.org.service.LoginService;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class LoginController {
@@ -34,7 +36,17 @@ public class LoginController {
 	
 	@Value("${jdbc.username}")
 	public String user;
-
+//	@ExceptionHandler(Exception.class)
+//	public ModelAndView HandlerInsertMessageException(Exception ex){
+//		ModelAndView modelAndView= new ModelAndView();
+//		//相应的处理方法
+//		//...
+//		//...
+//		//比如说获取异常信息,并添加到modelandview中,跳转到指定异常页面
+//		modelAndView.addObject("exceptionMessage",ex.getMessage());
+//		modelAndView.setViewName("/exception");
+//		return modelAndView;
+//	}
 	@RequestMapping(value="/login.do")
 	@ResponseBody
 	public UserPO login(@RequestParam()String username,
@@ -50,7 +62,7 @@ public class LoginController {
 
 	@RequestMapping("/index")
 	public String index(UserPO userPO) {
-//		int i = 1/0;
+		int i = 1/0;
 		return "page/index";
 	}
 	
